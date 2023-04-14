@@ -77,4 +77,17 @@ public class ProductController {
 
     }
 
+    /**
+     * 商品搜索
+     * @param q
+     * @return
+     */
+    @GetMapping("/search")
+    public R search(String q){
+        List<Product> productList = productService.list(new QueryWrapper<Product>().like("name", q));
+        Map<String,Object> map = new HashMap<>();
+        map.put("message", productList);
+        return R.ok(map);
+    }
+
 }

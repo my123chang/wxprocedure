@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 /**
  * 商品小类service实现类
  */
-@Service("SmallTypeService")
-public class ISmallTypeServiceImpl extends ServiceImpl<SmallTypeMapper, SmallType> implements ISmallTypeService {
+@Service("smallTypeService")
+public class ISmallTypeServiceImpl extends ServiceImpl<SmallTypeMapper,SmallType> implements ISmallTypeService {
 
     @Autowired
-    private SmallTypeMapper SmallTypeMapper;
+    private SmallTypeMapper smallTypeMapper;
 }

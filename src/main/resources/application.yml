@@ -20,3 +20,16 @@ mybatis-plus:
     auto-mapping-behavior: full # 自动映射任何复杂的结果
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mybatis/mapper/*.xml
+
+weixin:
+  jscode2sessionUrl: https://api.weixin.qq.com/sns/jscode2session
+  appid: wxea3b0511f5108815
+  secret: 1ef0ac3e9106f276d2441494cc136dac
+
+
+weixinpayconfig:
+  appid: wxf503a70f5f45cbd2
+  mch_id: 1500625891
+  key: jrBXpyMVPNY0FCFI42EBShLom7KMaRBa
+  url: https://api.mch.weixin.qq.com/pay/unifiedorder
+  notify_url: https://2c23-222-184-165-54.ngrok.io/weixinpay/notifyUrl
