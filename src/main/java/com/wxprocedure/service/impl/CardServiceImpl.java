@@ -14,4 +14,8 @@ public class CardServiceImpl {
     public List<String> filter(String match) {
         return data.stream().filter(item -> item.contains(match)).toList();
     }
+
+    public List<String> all(){
+        return data;
+    }
 }
