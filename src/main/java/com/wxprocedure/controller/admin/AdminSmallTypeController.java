@@ -2,7 +2,10 @@ package com.wxprocedure.controller.admin;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.wxprocedure.entity.*;
+import com.wxprocedure.dto.SmallTypeSearchDto;
+import com.wxprocedure.entity.PageBean;
+import com.wxprocedure.entity.R;
+import com.wxprocedure.entity.SmallType;
 import com.wxprocedure.service.IBigTypeService;
 import com.wxprocedure.service.ISmallTypeService;
 import com.wxprocedure.util.StringUtil;
@@ -10,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,11 +37,12 @@ public class AdminSmallTypeController {
      * @return
      */
     @RequestMapping("/list")
-    public R list(@RequestBody PageBean pageBean) {
+    public R list(@RequestBody SmallTypeSearchDto smallTypeSearchDto) {
         //已修复
-        String query = pageBean.getQuery().trim();
+        PageBean pageBean = smallTypeSearchDto.getPageBean();
+        String smallTypeName = smallTypeSearchDto.getSmallTypeName().trim();
         Page<SmallType> page = new Page<>(pageBean.getPageNum(), pageBean.getPageSize());
-        Page<SmallType> pageResult = smallTypeService.page(page, new QueryWrapper<SmallType>().like(StringUtil.isNotEmpty(query), "name", query));
+        Page<SmallType> pageResult = smallTypeService.page(page, new QueryWrapper<SmallType>().like(StringUtil.isNotEmpty(smallTypeName), "name", smallTypeName));
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("smallTypeList", pageResult.getRecords());
         resultMap.put("total", pageResult.getTotal());
