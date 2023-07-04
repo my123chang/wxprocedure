@@ -2,6 +2,7 @@ package com.wxprocedure.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wxprocedure.entity.SmallType;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 /**
  * 商品小类mapper接口
  */
+@Repository
 public interface SmallTypeMapper extends BaseMapper<SmallType> {
 
     List<SmallType> list(Map<String,Object> map);

@@ -1,6 +1,7 @@
 package com.wxprocedure.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wxprocedure.dto.SmallTypeSearchDto;
 import com.wxprocedure.entity.SmallType;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface ISmallTypeService extends IService<SmallType> {
     List<SmallType> list(Map<String,Object> map);
 
     Long getTotal(Map<String,Object> map);
+
+    Map<String, Object> search(SmallTypeSearchDto smallTypeSearchDto);
 }
