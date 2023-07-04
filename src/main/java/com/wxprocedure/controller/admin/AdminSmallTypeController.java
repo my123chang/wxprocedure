@@ -38,15 +38,7 @@ public class AdminSmallTypeController {
      */
     @RequestMapping("/list")
     public R list(@RequestBody SmallTypeSearchDto smallTypeSearchDto) {
-        //已修复
-        PageBean pageBean = smallTypeSearchDto.getPageBean();
-        String smallTypeName = smallTypeSearchDto.getSmallTypeName().trim();
-        Page<SmallType> page = new Page<>(pageBean.getPageNum(), pageBean.getPageSize());
-        Page<SmallType> pageResult = smallTypeService.page(page, new QueryWrapper<SmallType>().like(StringUtil.isNotEmpty(smallTypeName), "name", smallTypeName));
-        Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("smallTypeList", pageResult.getRecords());
-        resultMap.put("total", pageResult.getTotal());
-        return R.ok(resultMap);
+        return R.ok(smallTypeService.search(smallTypeSearchDto));
     }
 
 
