@@ -21,7 +21,7 @@ public class BigType {
 
     private String image="default.jpg"; // 封面图片
 
-    @TableField(select = false)
-    private List<SmallType> smallTypesList; // 商品小类集合
+    @TableField(select=false)
+    private List<SmallType> smallTypeList; // 商品小类集合
 
 }

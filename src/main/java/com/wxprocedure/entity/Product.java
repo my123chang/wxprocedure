@@ -46,11 +46,13 @@ public class Product {
     private String description; // 描述
 
     @JsonSerialize(using=CustomDateTimeSerializer.class)
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
     private Date hotDateTime; // 设置热门推荐日期时间
 
     @TableField(select = false)
-    private List<ProductSwiperImage> productSwiperImagesList;
+    private List<ProductSwiperImage> productSwiperImageList;
 
-
+    @TableField(select = false)
+    private SmallType type; // 商品类别
 
 }

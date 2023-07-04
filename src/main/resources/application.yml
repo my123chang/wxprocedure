@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_huazp_mall_v3?serverTimezone=Asia/Shanghai
     username: root
-    password: Admin@123
+    password: 123456
 
 mybatis-plus:
   global-config:
@@ -33,3 +33,11 @@ weixinpayconfig:
   key: jrBXpyMVPNY0FCFI42EBShLom7KMaRBa
   url: https://api.mch.weixin.qq.com/pay/unifiedorder
   notify_url: https://2c23-222-184-165-54.ngrok.io/weixinpay/notifyUrl
+
+bigTypeImagesFilePath: D://workspaces/wxprocedure/bigTypeImgs/
+
+productImagesFilePath: D://workspaces/wxprocedure/productImgs/
+
+swiperImagesFilePath: D://workspaces/wxprocedure/swiperImgs/
+
+productSwiperImagesFilePath: D://workspaces/wxprocedure/productSwiperImgs/

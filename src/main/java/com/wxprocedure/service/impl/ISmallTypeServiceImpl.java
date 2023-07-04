@@ -7,6 +7,8 @@ import com.wxprocedure.service.ISmallTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品小类service实现类
@@ -16,4 +18,14 @@ public class ISmallTypeServiceImpl extends ServiceImpl<SmallTypeMapper,SmallType
 
     @Autowired
     private SmallTypeMapper smallTypeMapper;
+
+    @Override
+    public List<SmallType> list(Map<String, Object> map) {
+        return smallTypeMapper.list(map);
+    }
+
+    @Override
+    public Long getTotal(Map<String, Object> map) {
+        return smallTypeMapper.getTotal(map);
+    }
 }

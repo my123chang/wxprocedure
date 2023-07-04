@@ -52,8 +52,8 @@ public class UserController {
         String openid = jsonObject.get("openid").toString();
         System.out.println(openid);
         // 插入用户到数据库 如：用户不存在 或 插入用户  若：用户存在 更新用户
-        WxUserInfo resultWxuserInfo = wxUserInfoService.getOne(new QueryWrapper<WxUserInfo>().eq("openid",openid));
-        if (resultWxuserInfo==null){
+        WxUserInfo resultWxUserInfo = wxUserInfoService.getOne(new QueryWrapper<WxUserInfo>().eq("openid",openid));
+        if (resultWxUserInfo==null){
             System.out.println("不存在 插入用户");
             wxUserInfo.setOpenid(openid);
             wxUserInfo.setRegisterDate(new Date());
@@ -61,10 +61,10 @@ public class UserController {
             wxUserInfoService.save(wxUserInfo);
         }else {
             System.out.println("用户存在 更新用户");
-            resultWxuserInfo.setNickName(wxUserInfo.getNickName());
-            resultWxuserInfo.setAvatarUrl(wxUserInfo.getAvatarUrl());
-            resultWxuserInfo.setLastLoginDate(new Date());
-            wxUserInfoService.updateById(resultWxuserInfo);
+            resultWxUserInfo.setNickName(wxUserInfo.getNickName());
+            resultWxUserInfo.setAvatarUrl(wxUserInfo.getAvatarUrl());
+            resultWxUserInfo.setLastLoginDate(new Date());
+            wxUserInfoService.updateById(resultWxUserInfo);
         }
         // 利用jwt生存token返回前端
         String token = JwtUtils.createJWT(openid,wxUserInfo.getNickName(), SystemConstant.JWT_TTL);

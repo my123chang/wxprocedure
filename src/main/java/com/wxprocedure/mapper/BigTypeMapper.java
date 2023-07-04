@@ -8,4 +8,6 @@ import com.wxprocedure.entity.BigType;
  * 商品大类mapper接口
  */
 public interface BigTypeMapper extends BaseMapper<BigType> {
+
+    public BigType findById(Integer id);
 }

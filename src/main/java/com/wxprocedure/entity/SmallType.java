@@ -1,5 +1,6 @@
 package com.wxprocedure.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class SmallType implements Serializable {
 
     private Integer bigTypeId; // 大类id
 
-    @TableField(select = false)
+    @TableField(select = false,insertStrategy = FieldStrategy.NEVER,updateStrategy = FieldStrategy.NEVER)
     private BigType bigType;  // 所属商品大类
 
     @TableField(select = false)

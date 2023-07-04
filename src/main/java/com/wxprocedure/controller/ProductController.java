@@ -8,18 +8,14 @@ import com.wxprocedure.entity.ProductSwiperImage;
 import com.wxprocedure.entity.R;
 import com.wxprocedure.service.IProductService;
 import com.wxprocedure.service.IProductSwiperImageService;
-import org.bouncycastle.util.Pack;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 /**
  * 商品controller
@@ -69,10 +65,10 @@ public class ProductController {
     @GetMapping("/detail")
     public R detail(Integer id){
         Product product = productService.getById(id);
-        List<ProductSwiperImage> productSwiperImagesList = productSwiperImageService.list(new QueryWrapper<ProductSwiperImage>().eq("productId", product.getId()).orderByAsc("sort"));
-        product.setProductSwiperImagesList(productSwiperImagesList);
-        Map<String,Object> map = new HashMap<>();
-        map.put("message", product);
+        List<ProductSwiperImage> productSwiperImageList = productSwiperImageService.list(new QueryWrapper<ProductSwiperImage>().eq("productId", product.getId()).orderByAsc("sort"));
+        product.setProductSwiperImageList(productSwiperImageList);
+        Map<String,Object> map=new HashMap<>();
+        map.put("message",product);
         return R.ok(map);
 
     }

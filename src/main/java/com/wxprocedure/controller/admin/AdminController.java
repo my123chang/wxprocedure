@@ -75,4 +75,5 @@ public class AdminController {
         adminService.update(new UpdateWrapper<Admin>().set("password", admin.getNewPassword() ).eq("userName", admin.getUserName()));
         return R.ok();
     }
+
 }

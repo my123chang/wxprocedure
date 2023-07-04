@@ -11,11 +11,14 @@ import com.wxprocedure.service.IOrderDetailService;
 import com.wxprocedure.service.IOrderService;
 import com.wxprocedure.util.*;
 import io.jsonwebtoken.Claims;
+import javafx.scene.input.TouchEvent;
 import org.apache.http.HttpResponse;
-import org.apache.tomcat.util.log.SystemLogHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.MessageDigest;
 import java.util.*;
